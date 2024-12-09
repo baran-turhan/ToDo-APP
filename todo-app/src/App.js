@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p className='font-bold '>
-          Let's list ToDo!
+          Let's list ToDo! Lets start!
         </p>
       </header>
     </div>
