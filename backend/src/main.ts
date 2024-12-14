@@ -4,6 +4,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: 'http://localhost:3001', // Allow only your frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  });
 
   const config = new DocumentBuilder()
     .setTitle('API Docs')
@@ -17,7 +21,10 @@ async function bootstrap() {
   SwaggerModule.setup('api-docs', app, document);
   console.log("ok");
 
-
-  await app.listen(3000);
+  // Call listen only once
+  const PORT = process.env.PORT || 3000;
+  await app.listen(PORT);
+  console.log(`Application is running on http://localhost:${PORT}`);
 }
 bootstrap();
+
