@@ -28,6 +28,10 @@ export class TodosService {
     return await this.todoRepository.findOne({where: {id}}) ;
   }
 
+  async findByUserId(userId:number): Promise<Todo[]> {
+    return await this.todoRepository.find({ where: { user_id: userId } });
+  }
+
   async update(id: number, updateTodoDto: UpdateTodoDto): Promise<Todo> {
     const todo = await this.todoRepository.findOne({where: {id}});
     if(!todo){

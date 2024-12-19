@@ -16,10 +16,11 @@ const RegisterForm = () => {
                 email,
             });
             //alert(response.data.message);
+            alert("Succesfully signed up.\nNow you can log in to your account!")
             setName('');
             setEmail('');
             setPassword('');
-
+            setShowForm(false);
         } catch (err) {
             console.error(err);
             alert('Error adding profile');
@@ -38,10 +39,10 @@ const RegisterForm = () => {
                         Name: <input type='text' value={name} onChange={(e) => setName(e.target.value)} required />
                     </label>
                     <label className="mt-1 flex flex-col">
-                        Email: <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        Email: <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </label>
                     <label className="mt-1 flex flex-col">
-                        Password: <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        Password: <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </label>
 
 

@@ -8,6 +8,8 @@ import { TodosModule } from './todos/todos.module';
 import { StatusModule } from './status/status.module';
 import { AuthModule } from './auth/auth.module';
 import * as Joi from 'joi';
+import { ScheduleModule } from '@nestjs/schedule';
+import { TaskService } from './task.service';
 
 @Module({
   imports: [
@@ -27,8 +29,9 @@ import * as Joi from 'joi';
     TodosModule,
     StatusModule,
     AuthModule,
+    ScheduleModule.forRoot()
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TaskService],
 })
 export class AppModule {}
